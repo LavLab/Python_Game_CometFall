@@ -32,6 +32,15 @@ while running:
     Jeu.Joueur.les_boules.draw(Ecran)
     Jeu.les_monstres.draw(Ecran)
     
+    #  Déplacement des MONSTRES
+    for monstre in Jeu.les_monstres:
+        monstre.deplacement()
+        monstre.bar_vie(Ecran)
+        
+    # Déplacement des BOULES
+    for boule in Jeu.Joueur.les_boules:
+        boule.deplacement()
+    
     # MAJ de l'ecran
     pygame.display.flip()
     
@@ -43,14 +52,6 @@ while running:
     if Jeu.Touches.get(pygame.K_LEFT) and Jeu.Joueur.rect.x > 0:
         Jeu.Joueur.deplacement_gauche()
         
-    #  Déplacement des MONSTRES
-    for monstre in Jeu.les_monstres:
-        monstre.deplacement()
-        monstre.bar_vie(Ecran)
-        
-    # Déplacement des BOULES
-    for boule in Jeu.Joueur.les_boules:
-        boule.deplacement()
     
     # Evenement de la fenetre
     for event in pygame.event.get():
